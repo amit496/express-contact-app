@@ -1,112 +1,123 @@
 <%- include('layouts/header.ejs') %>
 
 <!-- content -->
-<main class="py-5">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-title">
-            <strong>Update Contact</strong>
+
+<main class="py-12">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto">
+      <div
+        class="bg-white border border-sand rounded-sm shadow-sm overflow-hidden"
+      >
+        <div class="ledger-edge h-3 bg-gold"></div>
+        <div class="px-8 pt-6 pb-2 flex items-center justify-between">
+          <div>
+            <p
+              class="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-1"
+            >
+              Edit Entry
+            </p>
+            <h1 class="font-display text-2xl font-semibold text-ink">
+              Update Contact
+            </h1>
           </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12">
-                <form
-                  action="/update-contact/<%= contacts._id %>"
-                  method="post"
-                >
-                  <div class="form-group row">
-                    <label for="first_name" class="col-md-3 col-form-label"
-                      >First Name</label
-                    >
-                    <div class="col-md-9">
-                      <input
-                        type="text"
-                        name="first_name"
-                        id="first_name"
-                        class="form-control"
-                        value="<%=contacts.first_name%>"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="last_name" class="col-md-3 col-form-label"
-                      >Last Name</label
-                    >
-                    <div class="col-md-9">
-                      <input
-                        type="text"
-                        name="last_name"
-                        id="last_name"
-                        class="form-control"
-                        value="<%=contacts.last_name%>"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="email" class="col-md-3 col-form-label"
-                      >Email</label
-                    >
-                    <div class="col-md-9">
-                      <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        class="form-control"
-                        value="<%=contacts.email%>"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="phone" class="col-md-3 col-form-label"
-                      >Phone</label
-                    >
-                    <div class="col-md-9">
-                      <input
-                        type="text"
-                        name="phone"
-                        id="phone"
-                        class="form-control"
-                        value="<%=contacts.phone%>"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="name" class="col-md-3 col-form-label"
-                      >Address</label
-                    >
-                    <div class="col-md-9">
-                      <textarea
-                        name="address"
-                        id="address"
-                        rows="3"
-                        class="form-control"
-                      >
-<%=contacts.address%></textarea
-                      >
-                    </div>
-                  </div>
-                  <hr />
-                  <div class="form-group row mb-0">
-                    <div class="col-md-9 offset-md-3">
-                      <button type="submit" class="btn btn-primary">
-                        Save
-                      </button>
-                      <a href="/contact" class="btn btn-outline-secondary"
-                        >Cancel</a
-                      >
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+          <span
+            class="w-10 h-10 rounded-sm bg-gold/10 text-gold flex items-center justify-center"
+          >
+            <i class="fa fa-edit"></i>
+          </span>
         </div>
+
+        <form
+          action="/update-contact/<%= contacts._id %>"
+          method="post"
+          class="px-8 pb-8 pt-4 space-y-5"
+        >
+          <div>
+            <label
+              for="first_name"
+              class="block text-sm font-medium text-ink mb-1"
+              >First Name</label
+            >
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              class="w-full rounded-sm border border-sand bg-paper px-4 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition"
+              value="<%=contacts.first_name%>"
+            />
+          </div>
+
+          <div>
+            <label
+              for="last_name"
+              class="block text-sm font-medium text-ink mb-1"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              class="w-full rounded-sm border border-sand bg-paper px-4 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition"
+              value="<%=contacts.last_name%>"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-ink mb-1"
+              >Email</label
+            >
+            <input
+              type="text"
+              name="email"
+              id="email"
+              class="w-full rounded-sm border border-sand bg-paper px-4 py-2.5 font-mono text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition"
+              value="<%=contacts.email%>"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-ink mb-1"
+              >Phone</label
+            >
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              class="w-full rounded-sm border border-sand bg-paper px-4 py-2.5 font-mono text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition"
+              value="<%=contacts.phone%>"
+            />
+          </div>
+
+          <div>
+            <label for="address" class="block text-sm font-medium text-ink mb-1"
+              >Address</label
+            >
+            <textarea
+              name="address"
+              id="address"
+              rows="3"
+              class="w-full rounded-sm border border-sand bg-paper px-4 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition"
+            >
+<%=contacts.address%></textarea
+            >
+          </div>
+
+          <hr class="border-sand" />
+
+          <div class="flex items-center gap-3 pt-1">
+            <button
+              type="submit"
+              class="bg-gold hover:bg-gold/90 text-ink font-medium px-6 py-2.5 rounded-sm transition-colors"
+            >
+              Save
+            </button>
+            <a
+              href="/contact"
+              class="text-muted hover:text-ink font-medium px-4 py-2.5 transition-colors"
+              >Cancel</a
+            >
+          </div>
+        </form>
       </div>
     </div>
   </div>

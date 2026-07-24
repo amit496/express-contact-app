@@ -1,95 +1,91 @@
 <%- include('layouts/header.ejs') %>
 
 <!-- content -->
-<main class="py-5">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-title">
-            <strong>Contact Details</strong>
+
+<main class="py-12">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto">
+      <div
+        class="bg-white border border-sand rounded-sm shadow-sm overflow-hidden"
+      >
+        <div class="ledger-edge h-3 bg-forest"></div>
+        <div class="px-8 pt-6 pb-4 flex items-center gap-4">
+          <span
+            class="w-14 h-14 rounded-sm bg-forest text-paper flex items-center justify-center font-display text-xl font-semibold shrink-0"
+          >
+            <%= (contacts.last_name || contacts.first_name ||
+            '?').charAt(0).toUpperCase() %>
+          </span>
+          <div>
+            <p
+              class="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-1"
+            >
+              Contact Details
+            </p>
+            <h1 class="font-display text-2xl font-semibold text-ink">
+              <%=contacts.first_name%> <%=contacts.last_name%>
+            </h1>
           </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group row">
-                  <label for="first_name" class="col-md-3 col-form-label"
-                    >First Name</label
-                  >
-                  <div class="col-md-9">
-                    <p class="form-control-plaintext text-muted">
-                      <%=contacts.first_name%>
-                    </p>
-                  </div>
-                </div>
+        </div>
 
-                <div class="form-group row">
-                  <label for="last_name" class="col-md-3 col-form-label"
-                    >Last Name</label
-                  >
-                  <div class="col-md-9">
-                    <p class="form-control-plaintext text-muted">
-                      <%=contacts.last_name%>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="email" class="col-md-3 col-form-label"
-                    >Email</label
-                  >
-                  <div class="col-md-9">
-                    <p class="form-control-plaintext text-muted">
-                      <%=contacts.email%>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="phone" class="col-md-3 col-form-label"
-                    >Phone</label
-                  >
-                  <div class="col-md-9">
-                    <p class="form-control-plaintext text-muted">
-                      <%=contacts.phone%>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="name" class="col-md-3 col-form-label"
-                    >Address</label
-                  >
-                  <div class="col-md-9">
-                    <p class="form-control-plaintext text-muted">
-                      <%=contacts.address%>
-                    </p>
-                  </div>
-                </div>
-                <hr />
-                <div class="form-group row mb-0">
-                  <div class="col-md-9 offset-md-3">
-                    <a
-                      href="/update-contact/<%= contacts._id %>"
-                      class="btn btn-info"
-                      >Edit</a
-                    >
-                    <a
-                      href="/delete-contact/<%= contacts._id %>"
-                      class="btn btn-outline-danger"
-                      >Delete</a
-                    >
-                    <a href="/contact" class="btn btn-outline-secondary"
-                      >Cancel</a
-                    >
-                  </div>
-                </div>
-              </div>
+        <div class="px-8 pb-8 pt-2">
+          <dl class="divide-y divide-sand border-t border-sand">
+            <div class="grid grid-cols-3 gap-4 py-4">
+              <dt class="text-sm font-medium text-muted col-span-1">
+                First Name
+              </dt>
+              <dd class="col-span-2 text-ink"><%=contacts.first_name%></dd>
             </div>
+            <div class="grid grid-cols-3 gap-4 py-4">
+              <dt class="text-sm font-medium text-muted col-span-1">
+                Last Name
+              </dt>
+              <dd class="col-span-2 text-ink"><%=contacts.last_name%></dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4 py-4">
+              <dt class="text-sm font-medium text-muted col-span-1">Email</dt>
+              <dd class="col-span-2 font-mono text-sm text-ink">
+                <%=contacts.email%>
+              </dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4 py-4">
+              <dt class="text-sm font-medium text-muted col-span-1">Phone</dt>
+              <dd class="col-span-2 font-mono text-sm text-ink">
+                <%=contacts.phone%>
+              </dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4 py-4">
+              <dt class="text-sm font-medium text-muted col-span-1">Address</dt>
+              <dd class="col-span-2 text-ink whitespace-pre-line">
+                <%=contacts.address%>
+              </dd>
+            </div>
+          </dl>
+
+          <hr class="border-sand mt-2" />
+
+          <div class="flex items-center gap-3 pt-6">
+            <a
+              href="/update-contact/<%= contacts._id %>"
+              class="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-ink font-medium px-5 py-2.5 rounded-sm transition-colors"
+              ><i class="fa fa-edit"></i> Edit</a
+            >
+            <a
+              href="/delete-contact/<%= contacts._id %>"
+              onclick="return confirm('Are you sure?');"
+              class="inline-flex items-center gap-2 border border-sand hover:border-rust hover:text-rust text-ink font-medium px-5 py-2.5 rounded-sm transition-colors"
+              ><i class="fa fa-times"></i> Delete</a
+            >
+            <a
+              href="/contact"
+              class="text-muted hover:text-ink font-medium px-4 py-2.5 transition-colors"
+              >Cancel</a
+            >
           </div>
         </div>
       </div>
     </div>
   </div>
 </main>
+
 <%- include('layouts/footer.ejs') %>

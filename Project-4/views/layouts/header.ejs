@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -10,24 +9,79 @@
 
     <title>My Contact</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Varela+Round"
     />
-    <!-- Bootstrap -->
+
+    <!-- Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/custom.css" rel="stylesheet" />
+
+    <!-- Tailwind (CDN build, no bundler needed) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: "#F7F4EC",
+              ink: "#201F1B",
+              forest: "#1F4D3B",
+              forestdark: "#163829",
+              gold: "#C68E17",
+              rust: "#A63D2C",
+              sand: "#E7E0CF",
+              muted: "#8A8474",
+            },
+            fontFamily: {
+              display: ['"Fraunces"', "serif"],
+              sans: ['"Inter"', "sans-serif"],
+              mono: ['"IBM Plex Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        background-color: #f7f4ec;
+        color: #201f1b;
+      }
+      /* subtle torn/perforated edge used on card headers */
+      .ledger-edge {
+        background-image: radial-gradient(
+          circle at 6px 0,
+          transparent 6px,
+          #f7f4ec 7px
+        );
+        background-size: 16px 12px;
+        background-position: top;
+        background-repeat: repeat-x;
+      }
+    </style>
   </head>
-  <body>
+  <body class="font-sans text-ink antialiased">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand text-uppercase" href="index.html">
-          <strong>Contact</strong> App
+    <nav class="bg-forestdark border-b-4 border-gold">
+      <div class="container mx-auto px-6 py-4 flex items-center">
+        <a href="/contact" class="flex items-baseline gap-2 group">
+          <span
+            class="w-2.5 h-2.5 rounded-full bg-gold inline-block group-hover:scale-110 transition-transform"
+          ></span>
+          <span
+            class="font-display text-2xl font-semibold text-paper tracking-tight"
+          >
+            Contact
+          </span>
+          <span class="font-display text-2xl italic text-sand/70">App</span>
         </a>
       </div>
     </nav>
+  </body>
+</html>

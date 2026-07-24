@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from 'mongoose';
-import contact from "./models/contacts.models.js";
 import Contact from "./models/contacts.models.js";
 
 const app = express();
