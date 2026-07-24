@@ -50,6 +50,9 @@ app.get('/update-contact/:id', async (req, res) => {
     res.render('update', { contacts: contactData });
 });
 
+
+
+
 app.post('/update-contact/:id', async (req, res) => {
 
     await Contact.findByIdAndUpdate({ _id: req.params.id }, req.body)
