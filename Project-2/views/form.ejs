@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+
+    <div class="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+
+        <h1 class="text-3xl font-bold text-white text-center">
+            Contact Us
+        </h1>
+
+        <p class="text-gray-300 text-center mt-2 mb-8">
+            We'd love to hear from you.
+        </p>
+
+        <form class="space-y-5" action="/form-submit" method="POST">
+
+            <div>
+                <label class="block text-gray-200 mb-2 font-medium" >
+                    Full Name
+                </label>
+
+                <input
+                    name="username"
+                    type="text"
+                    placeholder="Enter your name"
+                    class="w-full rounded-xl bg-white/10 border border-gray-500 px-4 py-3 text-white placeholder-gray-400 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition">
+            </div>
+
+            <div>
+                <label class="block text-gray-200 mb-2 font-medium">
+                    Email Address
+                </label>
+
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    class="w-full rounded-xl bg-white/10 border border-gray-500 px-4 py-3 text-white placeholder-gray-400 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition">
+            </div>
+
+            <div>
+                <label class="block text-gray-200 mb-2 font-medium">
+                    Password
+                </label>
+
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    class="w-full rounded-xl bg-white/10 border border-gray-500 px-4 py-3 text-white placeholder-gray-400 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition">
+            </div>
+
+            <button
+                class="w-full mt-6 bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 rounded-xl transition duration-300 shadow-lg">
+                Submit
+            </button>
+            <% if(message){%>
+                <p class="text-gray-300 text-center mt-2 mb-8 ">
+                    <%= message _%>
+                </p>
+            <%}%>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

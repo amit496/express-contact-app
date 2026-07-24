@@ -1,0 +1,95 @@
+<%- include('layout/header.ejs') %>
+
+<!-- Hero Section -->
+
+<section class="bg-gradient-to-r from-blue-700 to-cyan-500 text-white py-24">
+  <div class="max-w-6xl mx-auto px-8">
+    <h2 class="text-5xl font-bold mb-6">Welcome to Express JS</h2>
+
+    <p class="text-xl text-gray-100 mb-8">
+      Build modern web applications using Express, EJS and Tailwind CSS.
+    </p>
+
+    <a
+      href="/form"
+      class="bg-white text-blue-700 px-7 py-3 rounded-xl font-semibold hover:bg-gray-200 transition"
+    >
+      Get Started
+    </a>
+  </div>
+</section>
+
+<!-- Cards -->
+
+<section class="py-20">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-8">
+    <div class="bg-white rounded-2xl shadow-lg p-8">
+      <h3 class="text-2xl font-bold mb-4">Fast</h3>
+
+      <p class="text-gray-600">Express is lightweight and extremely fast.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-8">
+      <h3 class="text-2xl font-bold mb-4">Secure</h3>
+
+      <p class="text-gray-600">Easily build secure backend applications.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-8">
+      <h3 class="text-2xl font-bold mb-4">Scalable</h3>
+
+      <p class="text-gray-600">Perfect for APIs and enterprise applications.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Form -->
+
+<section class="pb-24">
+  <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact Form</h2>
+
+    <form action="/form-submit" method="POST" class="space-y-5">
+      <div>
+        <label class="block mb-2 font-semibold"> Name </label>
+
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter Name"
+          class="w-full border rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold"> Email </label>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          class="w-full border rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold"> Password </label>
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          class="w-full border rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+      </div>
+
+      <button
+        class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+
+<%- include('layout/footer.ejs') %>
