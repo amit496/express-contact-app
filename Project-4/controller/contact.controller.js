@@ -1,11 +1,26 @@
 import Contact from "../models/contacts.models.js";
 
 export const getContacts = async (req, res) => {
+    const { page = 1, limit = 1 } = req.query;
 
-    const contactData = await Contact.find()
-    // res.send(contactData);
-    res.render('contact', { contacts: contactData });
-}
+    const contactData = await Contact.paginate({}, {
+        page: parseInt(page),
+        limit: parseInt(limit)
+    });
+
+    res.render("contact", {
+        contacts: contactData.docs,
+        totalDocs: contactData.totalDocs,
+        limit: contactData.limit,
+        totalPages: contactData.totalPages,
+        page: contactData.page,
+        pagingCounter: contactData.pagingCounter,
+        hasPrevPage: contactData.hasPrevPage,
+        hasNextPage: contactData.hasNextPage,
+        prevPage: contactData.prevPage,
+        nextPage: contactData.nextPage
+    });
+};
 
 export const showContacts = async (req, res) => {
 
