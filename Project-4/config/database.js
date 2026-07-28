@@ -1,8 +1,12 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/contactus-crud');
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Database connected successfully.");
     } catch (err) {
         console.error("Database connection failed:", err);

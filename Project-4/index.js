@@ -13,6 +13,6 @@ app.use(express.static("public"));
 
 app.use("/", ContactRouter);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server started successfully.");
 });
