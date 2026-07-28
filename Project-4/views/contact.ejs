@@ -34,14 +34,14 @@
         <span>Phone</span>
         <span class="text-right">Actions</span>
       </div>
-
+      <% var srno = 1 %>
       <% if (contacts.length === 0) { %>
       <div class="px-6 py-16 text-center">
         <p class="font-display text-xl text-ink mb-1">The directory is empty</p>
         <p class="text-muted text-sm">Add your first contact to get started.</p>
       </div>
       <% } %>
-
+      
       <%
       const tabColors = ['bg-forest', 'bg-gold', 'bg-rust', 'bg-muted'];
       contacts.forEach((contact, i) => {
@@ -49,13 +49,16 @@
       <div
         class="group grid grid-cols-[3rem_1fr] md:grid-cols-[3rem_1fr_1fr_1fr_9rem] gap-2 md:gap-4 items-center px-0 py-4 border-b border-sand last:border-b-0 hover:bg-sand/20 transition-colors"
       >
+      
         <!-- rolodex tab -->
         <div class="flex justify-center">
-          <span
+          <!-- <span
             class="<%= tabColors[i % tabColors.length] %> text-paper w-8 h-8 rounded-sm flex items-center justify-center font-mono text-xs font-medium"
           >
             <%= (contact.last_name || contact.first_name || '?').charAt(0).toUpperCase() %>
-          </span>
+            <%= (contact.last_name || contact.first_name || '?').charAt(0).toUpperCase() %>
+          </span> -->
+          <%= srno++ %>
         </div>
 
         <div class="md:col-span-1">
